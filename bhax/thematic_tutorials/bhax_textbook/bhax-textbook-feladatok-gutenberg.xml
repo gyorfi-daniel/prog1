@@ -1,0 +1,247 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gutenberg!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+        <cover>
+            <para>
+                Programozás tankönyvek rövid olvasónaplói.
+            </para>
+        </cover>
+    </info>
+    <section>
+        <title>Programozási alapfogalmak</title>
+        <para>         
+            Modellezés:
+        </para>
+        <para>
+Objektumok, egyedek – tulajdonságaik és viselkedésmódjuk van. Az egyedek osztályozhatóak, kategorizálhatóak.
+A valós világ túl bonyolult, ezért az emberi gondolkodás az absztrakción alapul, ezért modellekben gondolkodunk. Az absztrakció lényege a közös
+és lényeges dolgok kiemelése.       
+        </para>
+        <para>
+            Számítógépen az egyedek tulajdonságait az adat, viselkedésmódjaikat a programok szemléltetik. Ezt adatmodellnek nevezzük.
+        </para>
+        <para>
+            Alapfogalmak:
+        </para>
+        <para>
+            A magas szintű nyelven megírt programot forrásszövegnek nevezzük, a rá vonatkozó formai követelményeket a szintaktikai szabályok, a tartalmi
+szabályokat a szemantikai szabályok definiálják.
+Minden processzor saját gépi nyelvvel rendelkezik, így csak az adott gépi nyelven írt programokat tudja végrehajtani. Tehát a magas szintű nyelven
+írt forrásszövegeket gépi nyelvű programmá kell alakítani. Ennek két módja van: fordítóprogramos és interpreteres.
+        </para>
+        <para>
+            Tárgyprogramot csak a szintaktikailag helyes forrásprogramból lehet előállítani. Az előállított program gépi nyelvű, de még nem futtatható. Belőle
+futtatható programot a kapcsolatszerkesztő állít elő. Majd a futtatható programot a betöltő helyezi a tárba és adja át neki a vezérlést. A futó program
+vezérlését a futtató rendszer felügyeli.
+        </para>
+        <para>
+            A magas szintű programozási nyelvek között létezik olyan, amelyben olyan forrásprogramot lehet, amely tartalmaz nem nyelvi elemeket is. Ilyenkor
+egy előfordító segítségével először a forrásprogramból egy adott nyelvű forrásprogramot állítunk elő, majd ezt feldolgozzuk a nyelv fordítójával. Az
+interpreteres technikai esetén nem készül tárgyprogram, utasításonként sorra veszi a forrásprogramot, értelmezi, s végrehajtja.
+        </para>
+        <para>
+            Minden nyelvnek megvan a saját szabványa, amit hivatkozási nyelvnek nevezünk, ebben vannak definiálva a szintaktikai és szemantikai szabályok.
+A hivatkozási nyelvek mellett léteznek még implementációk. Ezek egy adott platformon realizált fordítóprogramot vagy interpreterek.
+        </para>
+        <para>
+            Az implementációk nagy problémája mai napig is a hordozhatóságban rejlenek. Gyakorlatilag lehetetlen megoldani, hogy az egyik
+implementációban működő program a másik implementációban is ugyan azt az eredményt adja.
+Napjainkban a programok írásához grafikus integrált fejlesztői környezetek állnak rendelkezésünkre. Ezek tartalmaznak szövegszerkesztőt,
+fordítót, kapcsolatszerkesztőt, betöltőt, futtató rendszert és belövőt is.
+        </para>
+        <para>
+            A programnyelvek osztályozása:
+        </para>
+        <para>
+            Imperatív nyelvek (eljárásorientált nyelvek, objektumorientált nyelvek), Deklaratív nyelvek (funkcionális nyelvek, logikai nyelvek) és máselvű nyelvek.
+        </para>
+        <para>
+            Karakterkészlet:
+        </para>
+        <para>
+            A forrásszöveg legkisebb része a karakter. Egy nyelvben megjelenhető karaktereket karakterkészlet tartalmazza. A karakterekből állíthatóak elő a
+bonyolultabb nyelvi elemek.
+        </para>
+        <para>
+            Minden nyelvnek saját karakterkészlete van, általában a következő kategóriák alapján csoportosítva a karaktereket: betűk, számok, egyéb karakterek.
+Minden nyelvben betű az angol ABC 26 nagybetűje. Egyes nyelvekben (FORTRAN) a kisbetűk nem betűk. A Pascal szerint a kis- és nagybetű
+azonos, a C szerint nem. A legtöbb nyelv a nemzeti betűket nem tartja betűnek. A számokat minden nyelv egységesen kezeli, a decimális számok
+mindenhol számok. Egyéb karakterek a műveleti jelek, elhatároló jelek, írásjelek és a speciális karakterek (pl.: ~). A szóköz kitűntetett szerepű.
+        </para>
+        <para>
+           Lexikális egységek: 
+        </para>
+        <para>
+            - Többkarakteres szimbólum (általában operátorok, pl.: ++).
+        </para>
+        <para>
+           - Szimbolikus név (azonosító: betűvel kezdődik, számmal vagy betűvel folytatódhat, kulcsszó: a nyelv tulajdonít neki jelentést – IF, FOR, CASE,
+standard azonosító: a nyelv tulajdonít neki jelentést, de ez a jelentés megváltoztatható - NULL). 
+        </para>
+        <para>
+           - Címke (a végrehajtható utasítások megjelölésére szolgál, hogy a program egy másik pontjából hivatkozni tudjunk rá, COBOL: nincs, Pascal: max.
+4 jegyű e.n. e.sz., FORTRAN: max. 5 jegyű e.n. e.sz., PL/I,C,Ada: azonosító).
+        </para>
+        <para>
+            - Megjegyzés (olyan rész helyezhető el segítségével, amelyet a fordító program a lexikális elemzés során amúgy is töröl, így nem befolyásolja a
+programot. Három féle megjegyzés létezik: egész soros megjegyzés, sor végi megjegyzés, szóközök közötti megjegyzés).
+        </para>
+        <para>
+           - Literál (fix értékkel rendelkező programozási eszköz, 2 komponense van: típus, érték). 
+        </para>
+        <para>
+            A forrásszöveg összehasonlításának általános szabályai:
+        </para>
+        <para>
+           Kötött formátumú nyelvekben alapvető szerepet játszik a sor, ugyanis azt vallják, hogy egy sor egy utasításnak felel meg. Ha egy utasítás nem fér
+el egy sorban, azt külön jelölni kell. Több utasítás egy sorban soha nem állhat.
+Szabad formátumú nyelvekben a sor és az utasítás között nincs kapcsolat, egy sorban akárhány utasítás lehet, és egy utasítás is állhat több sorból.
+Mivel nem a sor vége jelöl az utasítás végét, így egy speciális karakter jelöli az utasítás végjelét, ez általában egy pontosvessző.
+Az eljárásorientált nyelvekben a lexikális egységeket valamilyen elhatároló jellel (vessző), vagy szóközzel kell elválasztani egymástól. Az
+elhatároló jelek tetszőlegesen ismételhetőek. 
+        </para>
+        <para>
+            Adattípusok:
+        </para>
+        <para>
+           Léteznek típusos nyelvek és nem típusos nyelvek. Vannak egyszerű, összetett és mutató adattípusok.
+        </para>
+       
+    </section>        
+    <section>
+        <title>Programozás bevezetés</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>
+         <para>
+            Szintaktikai egységek:
+        </para>
+        <para>
+            6 szintaktikai egységet különböztetünk meg: azonosítók, kulcsszavak, állandók, karakterláncok, operátorok és egyéb
+szeparátorok. a C fordító nem veszi figyelembe a szóközöket, tabulátorokat, újsorokat, megjegyzéseket (közös nevükön üres helyeket).
+        </para>
+        <para>
+            Az azonosítók értelmezése:
+        </para>
+        <para>
+            A C nyelv az azonosítók értelmezését a tárolási osztályára és a típusára alapozza. A tárolási
+osztály az azonosítóhoz rendelt tárhely elhelyezkedését és élettartamát, a típus az azonosítóhoz rendelt tárterületen talált értékek
+jelentését határozza meg. Négy deklarálható tárolási osztály van: automatikus, statikus, külső és regiszterosztály.
+        </para>
+        <para>
+            Objektumok és balértékek:
+        </para>
+        <para>
+            Az objektum a tár valamely műveletekkel kezelhető része; a balérték (lvalue) objektumra hivatkozó kifejezés. A balérték kifejezésre
+kézenfekvő példa az azonosító. Bizonyos operátorok balértékeket eredményeznek: ha E mutató típusú kifejezés, akkor *E olyan balérték
+kifejezés, amely arra az objektumra hivatkozik, amire az E mutat. A balérték elnevezés az E1 =E2 értékadó kifejezésből származik,
+amelyben az E1 bal oldali operandusnak balérték kifejezésnek kell lennie. Az egyes operátorok alább következő ismertetése során
+közöljük hogy az adott operátor balérték operandusokat vár-e és hogy balértéket ad-e eredményül.
+        </para>
+        <para>
+            Konverziók:
+        </para>
+        <para>
+            Operandusuktól függően számos operátor válthatja ki valamelyik operandusa értékének egyik típusból valamilyen másik típusba
+történő átalakítását.
+        </para>
+        <para>
+            Kifejezések:
+        </para>
+        <para>
+           A legmagasabb precedencia az első. îgy pl. azokat a kifejezéseket, amelyekre mint a + operandusaira hivatkozunk.
+Az operátorokra bal-, ill. jobbirányú asszociativitás vonatkozik. A kifejezésekben alkalmazott operátorok precedenciáját és asszociativitását
+nyelvtan foglalja össze.
+Egyéb esetekben a kifejezések kiértékelésének sorrendje határozatlan. A fordítóprogram a részkifejezéseket saját megítélése szerint
+abban a sorrendben számítja ki, amit leghatékonyabbnak vél, még abban az esetben is, ha a részkifejezéseknek mellékhatásaik vannak. A
+mellékhatások előfordulásának sorrendje meghatározott. Kommutatív és asszociatív operátorokat <![CDATA[(*, +, &, |, n~)]]> tartalmazó kifejezések
+tetszés szerint rendezhetők még zárójelek jelenlétében is; ha adott sorrendben végzendő kiértékelést kívánunk előírni, explicit ideiglenes
+változót kell használnunk.
+A kifejezések kiértékelése során a túlcsordulás és az osztás ellenőrzésének kezelése gépfüggő. A C nyelv minden létező
+megvalósítása figyelmen kívül hagyja az egészek túlcsordulását; a 0-val való osztás kezelése, ill. a lebegőpontos kivételek gépről gépre
+változnak, és általában valamilyen könyvtári függvénnyel módosíthatók.
+        </para>
+        <para>
+            Deklarációk:
+        </para>
+        <para>
+            A deklarációk segítségével határozzuk meg, hogyan értelmezze a C fordító az egyes azonosítókat; a deklarációk nem feltétlenül
+jelentenek tárterület-foglalást az azonosító számára.
+        </para>              
+    </section>        
+    <section>
+        <title>Programozás</title>
+        <para>                
+            <citation>BMECPP</citation>
+        </para>
+        <para>
+            A C++ általános célú programozási nyelv, amely lehetővé teszi az objektumorientált és generikus programozást, ugyanakkor alacsony szintű nyelvi konstrukciókat is támogat.
+            A C++-t Bjarne Stoustrup fejlesztette ki. Az első verzió 1983-ban jelent meg.
+            A C++ a C nyelvre épül: az első C++ fordítók C kódot generáltak.
+            A C-t sokan a C++ nyelv egy részhalmazának tekintik, hiszen a C++ a C szintaxisra épít, azt terjeszti ki.
+            A legtöbb C program valóban C++ program is de van köztük néhány különbség.
+        </para>
+        <para>
+            Megjelent a bool típus a C++ nyelvben. Ez vagy 'true' vagy 'false' értéket vehet fel.            
+        </para>
+        <para>
+           A 'C++'-ban a függvény neveket és az argumentumajikat együtt olvassa. Ez lehetőséget nyújt azonos nevű függvényekhez.
+           Az argumentumaihoz már meg tudunk adni alapértelmezett értékeket is. 
+        </para>
+        <para>
+           A 'C++'-ban megjelent a referenciatípus is, ami a pointerek szerepét felváltja.    
+        </para>
+        <para>
+            Függvények túlterhelésére 'C++'-ban már van lehetőség, míg ez C-ben még nem.
+        </para>
+        <para>Operátorok és túlterhelésük</para>
+        <para>
+            Az operátorok az argumentumaik segítségével végeznek számitásokat, amelyeket felhasználjuk a visszatérési értékek felhasználásával.
+            Az operátorok sorrendjét befolyásolhatjuk zárójelekkel. A 'C++'- a C-hez képest bevezet néhány új operátort.
+            Szerencsére nagyon rugalmas működéssel rendelkeznek.
+        </para>
+        <para>
+            A C-vel ellentétben, a 'C++'-ban lehetőség van referencia szerinti paraméterátadásra, míg C-ben csak pointerekkel van.
+        </para>
+        <para>
+            C++ osztálysablonok és a függvénysablonok definiálásakor bizonyos elemeket nem adunk meg, hanem paraméterekként kezeljük.
+            Ez lehet explicit vagy implicit módon is. Ezek generikus típusú sablonok.
+        </para>
+        <para>
+            A 'C++'-nyelvben a stream bájtok sorozatát jelenti.
+            Ezeknek a stream-eknek lehet bemenetei vagy kimeneti adatfolyamuk.
+            A rendszerhívások adatfolyamokat egy bufferrel látják el, amelyeket osztályok példányai valósítják meg.
+            Ezek a bufferek össze gyűjtik a karaktersorozatokat, és több cout kiírást egy rendszerhívással írnak ki.
+            Ezzel ellentétben az endl, illetve egy következő cin beolvasás kiírja a couthoz tartozó buffereket. 
+            A bufferek ürítéségez használhatjuk a 'flush' parancsot.
+        </para>            
+        <para>
+            A C++ állománykezeléshez adatfolyamokat használ. Ezek a stream-ek bemeneti és kimeneti állományokból állnak.
+            Van lehetőség kétirányura is (fstream).
+            Objektumorientáltság lehetővé teszi a konstruktorok és destruktorok használatát.
+        </para>
+        <para>
+            Konstruktorok segítségével inicializálni tudjuk az osztályokat.
+            Destruktorokkal pedig kiürítjük őket a memóriábol.
+        </para>
+        <para>
+            A kvételkezelés olyan mechanizmus, amely biztosítja, hogy ha hibát fedezünk ffel valahol, akkor a futás azonnal a hibakezelő ágon folytatódjon.
+            A kivételkezelést nem véletlenül hívják kivétel-, és nem hibakezelésnek.
+            A megoldás bármilyen kivételes helyzet esetén felhasználható, nem csak hiba esetén.
+            A kivételkezelés mechanizmusa azt biztosítja, hogy kivétel esetén a futás azonnal a kivételkezelőre ugorjon.
+            Például, ha van egy függvényünk ami egy számnak visszaasja a reciprokértékét.
+            Azt az esetet figyelembe kell vennünk, hogy ha 0-t kapunk bemenetről, mivel 0-nak nincs reciproka.
+            Ekkor lép életbe a kivételkezelés. A main függvénybe egy try-catch blokkot szoktak berakni ami a kivételkezeléssel foglalkozik.
+            A try védett blokba a {} közé írjuk be a normál működés kódját,
+            illetve a catch ágba {} közé a hibakezelő kódot.
+            Ha nincs hiba akkor a catch ág nem fut le, hanem csak a try részben lévő valamennyi paramcs fog lefutni. Ha mégis van hiba, akkor a throw kulcsszóval kivételt dobunk, majd a catchnél "elkapjuk".
+        </para>
+        <para>
+          Egy kivétel dobásakor annak elkapásáig a függvények hívásai  láncában felfelé haladva az egyes függvények lokális változói felszabadulnak.
+           Ezt a folyamatot a hívási verem visszacsévélésének nevezzük.   
+        </para>        
+    </section>        
+</chapter>                

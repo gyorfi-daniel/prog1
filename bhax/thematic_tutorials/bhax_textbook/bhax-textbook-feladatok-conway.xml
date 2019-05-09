@@ -1,0 +1,124 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Conway!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Hangyaszimulációk</title>
+        <para>
+            Írj Qt C++-ban egy hangyaszimulációs programot, a forrásaidról utólag reverse engineering jelleggel
+            készíts UML osztálydiagramot is!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/10/10/myrmecologist">https://bhaxor.blog.hu/2018/10/10/myrmecologist</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://github.com/gyorfi-daniel/prog1/tree/master/Myrmecologist">https://github.com/gyorfi-daniel/prog1/tree/master/Myrmecologist</link>               
+        </para>
+        <para>
+            A program futtatásához szükségünk van a libqt4-dev csomagra.
+        </para>
+        <para>
+           Az argumentumokat a main függvény kéri be, és deklarálja  a bemeneti argumentumokkal az AntWin osztályt. Megjelenítésért az AntWin osztály a felelős. Az AntThread osztály végzi a ’hangyák’ lehelyezését és a számolást. Itt az AntThread::newDir kalkulálja, hogy melyik irányba haladjon a hangya.
+           Az AntThread::moveAnts függvénben történik a kiszámolása ezeknek a műveleteknek. Az AntThread megállítható és újra indítható művelet, mivel ez külön szálon fut,
+           A keyPressEventnél be van bindelve a'P' betű erre.
+        </para>            
+    </section>        
+    <section>
+        <title>Java életjáték</title>
+        <para>
+            Írd meg Java-ban a John Horton Conway-féle életjátékot, 
+            valósítsa meg a sikló-kilövőt!
+        </para>
+        <para>
+            A program futtatásához szükségünk van: sudo apt-get install libqt4-dev 
+        </para>
+        <para>
+            A program elkészítéséhez szükség van egy pár parancs lefuttatásához. Először is egy mappába kell szedni az összes fájlt amire szüségünk van.
+            A terminálon belépünk abba a mappába (nekem a mappám neve sejtauto volt) majd:
+        </para>
+        <programlisting>
+    qmake-qt4 -project
+    qmake-qt4 sejtauto.pro 
+    make
+    ./sejtauto
+        </programlisting>
+        <para>
+            Conway a sejtautomata-tervét a minimumig igyekezett egyszerűsíteni, amikor ezeket a „genetikai szabályokat” igen átgondoltan, hosszú kísérletezés után kiválasztotta.
+            Röviden: a szabályok olyanok legyenek, hogy a népesség viselkedése lehetőleg ne legyen előre megjósolható.
+        </para>
+            <para>Túlélés: minden sejt, amelynek kettő vagy három szomszédja van, életben marad a következő generációra.</para>
+            <para>Halál: minden sejt, amelynek négy vagy több szomszédja van, meghal a túl-népesedéstől! Ugyancsak minden sejt meghal a következő generációra, amelynek kevesebb mint két egy szomszédja van – a halál oka: elszigetelő-dés.</para>
+            <para>Születés: ha egy üres cellának pontosan három élő sejt van a szomszédjá-ban, akkor ott új sejt születik.</para>
+        <para>            
+            Kapunk egy ablakot, amelyen bal alul található 2 'blokk', amelyek egymás felé küldenek egy-egy 'csomót' amelyek összeütöknek és létrehoznak kis 'sikló'-kat, amik átlósan felfelé haladnak. 
+            Ez a folyamat addig tart, amíg ezek a kis mozgó siklók el nem érik az 'ágyúkat', aztán meghalnak. 
+            A 2x2-es fekete négyzetek nem mozognak és nem változnak.
+        </para>
+        <para>
+        Megoldás részletesebb áttanulmányozásáért nagyon szépen és átláthatóan le van írva:
+        <link xlink:href="http://becskeha.blogspot.com/2015/04/game-of-life-eletjatek.html">http://becskeha.blogspot.com/2015/04/game-of-life-eletjatek.html</link>               
+        </para>
+        <para>
+                Pár illusztráció a történtekről:
+        </para>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="sejt1.png" scale="150"/>
+            </imageobject>
+        </mediaobject>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="sejt2.png" scale="150"/>
+            </imageobject>
+        </mediaobject>
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="sejt3.png" scale="150"/>
+            </imageobject>
+        </mediaobject> 
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="sejt4.png" scale="150"/>
+            </imageobject>
+        </mediaobject>         
+    </section>        
+    <section>
+        <title>Qt C++ életjáték</title>
+        <para>
+            Most Qt C++-ban!
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/kozepes/Qt/sejtautomata/">https://sourceforge.net/p/udprog/code/ci/master/tree/source/kozepes/Qt/sejtautomata/</link>          
+        </para>
+        <para>
+            Az előzöekhez hasonlóan minden ugyanúgy történik.
+        </para>
+        <para>            
+            Kapunk egy ablakot, amelyen bal alul található 2 sejt, amelyek egymás felé küldenek egy-egy 'csomót' amelyek összeütöknek és létrehoznak kis 'sikló'-kat, amik átlósan felfelé haladnak. 
+            Ez a folyamat addig tart, amíg ezek a kis mozgó siklók el nem érik a az 'ágyúkat', aztán meghalnak. 
+            A 2x2-es fekete négyzetek nem mozognak és nem változnak.
+        </para>    
+    </section>        
+    <section>
+        <title>BrainB Benchmark</title>
+        <para>
+        </para>
+        <para>
+            A Samu Entrophy-n belül lévő kék körben kell a játékosnak kurzort lenyomva tartani, ez eleinte nem nehéz, de az bizonyos idő elteltével egyre jobban elkezdenek mozogni a pontok, így  egyre nehezebb követni, hogy hol jár. 
+            A konzolon kiírja ha hibázunk. Folyamatosan méri  a reakció időnket bit/sec-ban.
+	</para>
+        <para>
+            10 percig fut a játék, de akár mikor lehetőségünk van kilépni akár az idő lejárta előtt is. Ekkor is láthatjuk az eredményeinket.
+        </para>
+        <para>
+            Fordítani és futtatni úgy tudjuk, ha a szükséges fájlok mind egy mappába vannak és a szokásos qmake-s eljárást kell alkalmaznunk itt is</para>
+        <para>
+            Megoldás forrása:<link xlink:href="https://github.com/nbatfai/SamuBrain">https://github.com/nbatfai/SamuBrain</link>
+        </para>
+               
+    </section>        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
