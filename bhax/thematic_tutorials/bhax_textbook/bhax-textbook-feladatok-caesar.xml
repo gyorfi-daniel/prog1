@@ -78,7 +78,8 @@ main ()
 <para>
 Megadjuk a mátrix sorainak a számát 'int nr = 5;'.
 Aztán egy Pointerre mutató pointer 'double **tm' amely lefoglal 8 bájtot.
-Majd kiírjuk a 'tm' címét a következő kód segítségével: <programlisting> 'printf("%p\n", &tm);'</programlisting>.
+Majd kiírjuk a 'tm' címét a következő kód segítségével:
+<programlisting><![CDATA[ 'printf("%p\n", &tm);']]></programlisting>.
 A 'malloc' segítségével lefoglalunk 5-ször 8 bájtot, ami egy void mutatót ad vissza.
 Ha ez mégsem sikerül a 'NULL' és 'return -1' -el kilép a program.
 Újra kiírjuk tm címét.
